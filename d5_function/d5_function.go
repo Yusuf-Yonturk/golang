@@ -74,5 +74,6 @@ func main() {
 
 	sayac := makeCounter()
 	sayac()
-	fmt.Printf("%d", sayac())
+	fmt.Printf("%d\n", sayac())
+
 }
