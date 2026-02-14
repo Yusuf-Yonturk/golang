@@ -6,7 +6,7 @@ import (
 )
 
 func getPrice(cafe map[string]float64, name string) (float64, error) {
-	if price, exists := cafe[name]; exists {
+	if price, ok := cafe[name]; ok {
 		return price, nil
 	} else {
 		return 0, errors.New("Hata:Böyle bir ürün yok!")
