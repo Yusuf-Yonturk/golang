@@ -1,7 +1,17 @@
 package main
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
+func getPrice(cafe map[string]float64, name string) (float64, error) {
+	if price, exists := cafe[name]; exists {
+		return price, nil
+	} else {
+		return 0, errors.New("Hata:Böyle bir ürün yok!")
+	}
+}
 func main() {
 	//Map
 	//Anahtar - Değer || Key - Value
@@ -40,5 +50,12 @@ func main() {
 
 	fmt.Println(personas)
 	fmt.Println("123 kullanici adina sahip personanın ismi:", personas["123"]["name"])
+
+	fiyat, err := getPrice(cafe, "Basque Cheesecake")
+	if err != nil {
+		fmt.Println("Eyvah bir hata çıktı:", err)
+	} else {
+		fmt.Println("Urun fiyati:", fiyat)
+	}
 
 }
