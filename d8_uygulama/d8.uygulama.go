@@ -37,7 +37,7 @@ func deleteUser(id string) error {
 }
 func uptadeUser(id string, uptades map[string]string) error {
 	if user, ok := db[id]; !ok {
-		return fmt.Errorf("User id %s not found")
+		return fmt.Errorf("User id %s not found", id)
 	} else {
 		for key, value := range uptades {
 			user[key] = value
@@ -75,4 +75,5 @@ func main() {
 		fmt.Println("Kullanici basariyla guncellendi!")
 		listUser()
 	}
+
 }
